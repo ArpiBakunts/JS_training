@@ -76,7 +76,7 @@ function multiple(number) {
 // ***
 // Do we need to handle 0 case?
 function ageRange(age, monthOrYear) {
-    if ((monthOrYear === "month" || monthOrYear === "months") && (age >= 1 || age <= 12)) {
+    if ((monthOrYear === "month" || monthOrYear === "months") && (age >= 1 && age <= 12)) {
         console.log("Baby");
     } else if (age >= 1 && age <= 2) {
         console.log("Toddler");
