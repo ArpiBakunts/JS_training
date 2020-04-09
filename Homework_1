@@ -51,13 +51,13 @@ function multiple(number) {
             counter++;
             switch (counter) {
                 case 3:
-                    result = `3, 5 and 7.`;
+                    result = "3, 5 and 7.";
                     break;
                 case 2:
-                    result = result + " and " + i.toString();
+                    result = result + " and " + i;
                     break;
                 default:
-                    result = result + i.toString();
+                    result = result + i;
                     break;
             }
         }
@@ -73,21 +73,43 @@ function multiple(number) {
 //8. Given an age, figure out whether someone is a baby(1 months - 12 months),
 // toddler (1year - 2 years), child(3 years - 12 years ), teenager(13 years - 17 years) or
 // adult(18 years and more ). Also check that age in months is between 1 and 12.
-// ***
-// Do we need to handle 0 case?
-function ageRange(age, monthOrYear) {
-    if ((monthOrYear === "month" || monthOrYear === "months") && (age >= 1 && age <= 12)) {
+function ageRange(age, isYear) {
+    let ageInMonths;
+
+    if (!isYear && (age < 1 || age >= 13)) {
+        console.log("Wrong months number");
+        return;
+    }
+
+    ageInMonths = isYear ? age * 12 : age;
+
+    if (ageInMonths < 0) {
+        console.log("Age cannot be negative number");
+        return;
+    }
+
+    if (ageInMonths >= 1 && ageInMonths < 13) {
         console.log("Baby");
-    } else if (age >= 1 && age <= 2) {
+        return;
+    }
+
+    if (ageInMonths >= 13 && ageInMonths < 36) {
         console.log("Toddler");
-    } else if (age >= 3 && age <= 12) {
+        return;
+    }
+
+    if (ageInMonths >= 36 && ageInMonths < 145) {
         console.log("Child");
-    } else if (age >= 13 && age <= 17) {
+        return;
+    }
+
+    if (ageInMonths >= 145 && ageInMonths < 216) {
         console.log("Teenager");
-    } else if (age >= 18) {
+        return;
+    }
+
+    if (ageInMonths >= 216) {
         console.log("Adult");
-    } else {
-        console.log("Please enter valid inputs");
     }
 }
 
@@ -136,24 +158,25 @@ function passOrFail(mark1, mark2, mark3) {
 //11. Find the sign of product of three numbers without multiplication operator. Display the specified sign.
 function findSign(num1, num2, num3) {
     let counter = 0;
+    
     if (num1 === 0 || num2 === 0 || num3 === 0) {
         console.log("unsigned");
         return;
     }
+    
     if (num1 < 0 ) {
-        counter += 1;
+        counter++;
     }
+    
     if (num2 < 0) {
-        counter += 1;
+        counter++;
     }
+    
     if (num3 < 0) {
         counter++;
     }
-    if (counter % 2 === 0) {
-        console.log("+");
-    } else {
-        console.log("-");
-    }
+    
+    return counter % 2 === 0 ? console.log("+") : console.log("-");
 }
 
 
