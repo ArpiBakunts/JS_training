@@ -1,12 +1,17 @@
 // 1. Insert a number. Print ‘yes’ if the number is prime, ‘no’ otherwise.
 function primeNumber(number) {
-    let counter = 0;
-    for (let i = 1; i < number + 1; i++) {
+    if (number <= 1) {
+        console.log("Prime numbers should be > 1");
+        return;
+    }
+
+    for (let i = 2; i < number; i++) {
         if (number % i === 0) {
-            counter++;
+            console.log("No");
+            return;
         }
     }
-    (counter === 2 ) ? console.log("Yes") : console.log("No");
+    return console.log("Yes");
 }
 
 
@@ -115,8 +120,6 @@ function padding(array, padAmount, repeat) {
     if (padAmount > array.length) {
         console.log("Invalid padding amount");
         return;
-    } else if (padAmount === 0) {
-        return array;
     }
 
     let resultArray = [...array];
