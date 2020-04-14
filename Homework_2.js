@@ -129,4 +129,3 @@ function padding(array, padAmount, repeat) {
     }
     return resultArray.flat(1);
 }
-
