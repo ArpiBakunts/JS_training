@@ -1,4 +1,4 @@
-//Write a recursive function to determine whether all digits of the number are odd or not.
+//1. Write a recursive function to determine whether all digits of the number are odd or not.
 // zero is even
 function allNumOdd(number) {
     number = Math.abs(number);
@@ -85,10 +85,7 @@ function digitSum(number) {
         return number;
     }
 
-    let lastDigit = number % 10;
-    let remainingNumber = Math.floor(number / 10);
-
-    return digitSum(lastDigit + digitSum(remainingNumber));
+    return digitSum(number % 10 + digitSum(Math.floor(number / 10)));
 }
 
 
